@@ -1,0 +1,28 @@
+name: Align NPM Package Versions
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  workflow_dispatch:
+
+jobs:
+  align-package-versions:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+
+      - uses: cysp/align-package-versions-action@v0.0.1
+
+      - name: NPM Install
+        run: npm install --ignore-scripts
+
+      - name: Commit
+        run: |
+          git add package.json package-lock.json
+          git commit && git push
