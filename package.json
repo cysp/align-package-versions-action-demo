@@ -5,7 +5,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@sentry/integrations": "7.21.0",
+    "@sentry/integrations": "7.28.1",
     "@sentry/node": "7.28.1"
   }
 }
